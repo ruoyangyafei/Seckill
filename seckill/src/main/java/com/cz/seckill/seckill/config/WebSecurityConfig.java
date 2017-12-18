@@ -1,12 +1,15 @@
 package com.cz.seckill.seckill.config;
 
+import com.cz.seckill.seckill.service.MyFilterSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * Created by changyaqian on 2017/12/15.
@@ -15,6 +18,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity      // 开启Security
 @EnableGlobalMethodSecurity(prePostEnabled = true)  //AOP
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+
+    private MyFilterSecurityInterceptor myFilterSecurityInterceptor;
+
+    @Bean
+    UserDetailsService customUserService(){
+        //注册UserDetailsService 的bean
+        return null;
+    }
     @Override
     protected void  configure(HttpSecurity http) throws Exception{
         //路由策略和访问权限的简单配置
@@ -35,4 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .inMemoryAuthentication()
                 .withUser("Brave").password("123").roles("USER");
     }
+
+
 }
