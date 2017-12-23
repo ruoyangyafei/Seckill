@@ -1,6 +1,7 @@
 package com.cz.seckill.seckill.mapper;
 
 import com.cz.seckill.seckill.database.model.Permission;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -9,5 +10,5 @@ import java.util.List;
  */
 public interface PermissionMapper {
     public List<Permission> findAll();
-    public List<Permission> findByAdminUserId(int userId);
-}
+    public List<Permission> findByAdminUserId(@Param("userId") int userId);
+}  
