@@ -1,6 +1,7 @@
 package com.cz.seckill.seckill.web.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 /**
@@ -11,5 +12,15 @@ public class TestController extends BaseController{
     @GetMapping("/v1/seckill/test")
     public ResponseEntity test(){
         return success("Hello World!");
+    }
+
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    @RequestMapping("/hello")
+    public String hello() {
+        return "hello";
     }
 }
