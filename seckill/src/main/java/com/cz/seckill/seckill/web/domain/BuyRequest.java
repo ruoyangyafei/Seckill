@@ -11,7 +11,7 @@ public class BuyRequest {
     //订单uuid
     private String orderUuid;
     //订单信息
-    private BuyOrder buyOrder;
+    private BidInfo bidInfo;
     //0：未处理；1：正常；2：异常
     private int responseStatus;
 
@@ -39,12 +39,12 @@ public class BuyRequest {
         this.orderUuid = orderUuid;
     }
 
-    public BuyOrder getBuyOrder() {
-        return buyOrder;
+    public BidInfo getBidInfo() {
+        return bidInfo;
     }
 
-    public void setBuyOrder(BuyOrder buyOrder) {
-        this.buyOrder = buyOrder;
+    public void setBidInfo(BidInfo bidInfo) {
+        this.bidInfo = bidInfo;
     }
 
     public int getResponseStatus() {

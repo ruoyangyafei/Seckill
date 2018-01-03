@@ -30,7 +30,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void  configure(HttpSecurity http) throws Exception{
         //路由策略和访问权限的简单配置
         http
-                .formLogin()                      //启用默认登录页面
+                .authorizeRequests()
+                .antMatchers("/")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                //启用默认登录页面
                 .failureUrl("/login?error")       //登录失败返回URL：/login?error
                 .defaultSuccessUrl("/v1/seckill/test")       //登录成功跳转URL
                 .permitAll();                     //登录页面全部权限可访问
@@ -44,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("Brave").password("123").roles("USER");
+                .withUser("admin").password("123456").roles("USER");
     }
 
 
