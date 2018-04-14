@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class JsonGeneralResponse<E> {
 
+
     /**
      * 消息说明ID，为了支持国际化
      */
