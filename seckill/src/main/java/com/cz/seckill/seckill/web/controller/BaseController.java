@@ -1,6 +1,6 @@
 package com.cz.seckill.seckill.web.controller;
 
-import com.cz.seckill.seckill.util.JsonGeneralResponse;
+import com.cz.seckill.seckill.commons.JsonGeneralResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
